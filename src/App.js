@@ -11,7 +11,15 @@ class App extends React.Component {
                 <div className="container">
                     Add an Item... <br/>
                     <input type="text" className="input-text" placeholder="Write a ToDo"></input>
-                    <button className="app-btn">Add ToDo</button>
+                    <button className="add-btn">ADD TODO</button>
+                    <div className="list">
+                        <ul>
+                            <li>
+                                <input type="checkbox" />Play chess
+                                <button className="btn">DELETE</button>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         );
