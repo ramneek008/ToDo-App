@@ -72,12 +72,16 @@ class App extends React.Component {
                                         onChange={() => {}}
                                         />
                                         {item.value}
+                                        <button
+                                        className="btn"
+                                        onClick={() => {this.deleteItem(item.id)}}
+                                        >DELETE</button>
                                     </li>
-                                )
+                                );
                             })}
                             <li>
                                 <input type="checkbox" />Play chess
-                                <button className="btn">DELETE</button>
+                                <button className="btn" >DELETE</button>
                             </li>
                         </ul>
                     </div>
