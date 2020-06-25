@@ -36,6 +36,10 @@ class App extends React.Component {
         this.setState({list: updatedlist})
     }
 
+    updateItem(input){
+        this.setState({newItem:input})
+    }
+
     render(){
         return(
             <div>
@@ -43,10 +47,34 @@ class App extends React.Component {
                 <h1 className="app-title">ToDo App</h1>
                 <div className="container">
                     Add an Item... <br/>
-                    <input type="text" className="input-text" placeholder="Write a ToDo"></input>
-                    <button className="add-btn">ADD TODO</button>
+                    <input 
+                    type="text" 
+                    className="input-text" 
+                    placeholder="Write a ToDo"
+                    required
+                    value={this.state.newItem}
+                    onChange={e => this.updateItem(e.target.value)}
+                    />
+                    <button 
+                    className="add-btn" 
+                    onClick={() => this.addItem(this.state.newItem)}
+                    disabled={!this.state.newItem.length}
+                    >ADD TODO</button>
                     <div className="list">
                         <ul>
+                            {this.state.list.map(item => {
+                                return(
+                                    <li key={item.id}>
+                                        <input 
+                                        type="checkbox" 
+                                        name="idDone"
+                                        checked={item.isDone}
+                                        onChange={() => {}}
+                                        />
+                                        {item.value}
+                                    </li>
+                                )
+                            })}
                             <li>
                                 <input type="checkbox" />Play chess
                                 <button className="btn">DELETE</button>
